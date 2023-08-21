@@ -1,0 +1,22 @@
+{
+  "name": "mojl-sass",
+  "version": "1.0.0",
+  "description": "An adapter for using sass with mojl",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "npx mocha"
+  },
+  "keywords": [],
+  "repository": "github:thomasperi/mojl-sass",
+  "author": "Thomas Peri <hello@thomasperi.net>",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  },
+  "dependencies": {
+    "sass": "^1.66.1"
+  }
+}
