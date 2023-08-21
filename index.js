@@ -32,10 +32,8 @@ module.exports.run = async ({entryPath, isDev, outputPath, sourcePaths}) => {
 
 		// Embed the source map in the css file.
 		// Thanks to: https://github.com/sass/dart-sass/issues/1594#issuecomment-1013208452
-		const sm = JSON.stringify(result.sourceMap);
-		const smBase64 = (Buffer.from(sm, 'utf8') || '').toString('base64');
-		const smComment = '/*# sourceMappingURL=data:application/json;charset=utf-8;base64,' + smBase64 + ' */';
-		css += '\n\n' + smComment;
+		const map = Buffer.from(JSON.stringify(result.sourceMap), 'utf8').toString('base64');
+		css += `\n\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,${map} */`;
 	}
 
 	await fs.promises.writeFile(outputPath, css, 'utf8');
